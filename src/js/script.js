@@ -84,17 +84,14 @@
       /* START: add event listener to clickable trigger on event click */
       clickableTrigger.addEventListener('click', function(event) {
       /* prevent default action for event */
-      event.preventDefault();
-      /* find active product (product that has active class) */
-      const activeProducts = document.querySelectorAll(select.all.menuProductsActive);
-      /* if there is active product and it's not thisProduct.element, remove class active from it */
-      for(let activeProduct of activeProducts){
-        (activeProduct !== null && activeProduct !== thisProduct.element) ? activeProduct.classList.remove('active') : thisProduct.element;
-        console.log('class active removed:', activeProduct)
-      }
-      /* toggle active class on thisProduct.element */
-      thisProduct.element.classList.toggle('active');
-      console.log('toggle class:', thisProduct.element);
+        event.preventDefault();
+        /* find active product (product that has active class) */
+        const activeProduct = document.querySelector(select.all.menuProductsActive);
+        /* if there is active product and it's not thisProduct.element, remove class active from it */
+        if(activeProduct !== null && activeProduct !== thisProduct.element) activeProduct.classList.remove('active');
+        /* toggle active class on thisProduct.element */
+        thisProduct.element.classList.toggle('active');
+        console.log('toggle class:', thisProduct.element);
       });
     }
   }
